@@ -1,0 +1,67 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+h1{
+    padding-top: 50px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+
+.containerSuma{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+
+    border: 1px solid black;
+    margin-top: 50px;
+    padding: 10px;
+    width: 600px;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+h3{ 
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+}
+
+#buttonSuma{
+
+    width: 100px;
+
+}
+
+#symbol{
+
+    padding: 10px;
+}
+
+#solucio{
+
+    padding: 30px;
+}
