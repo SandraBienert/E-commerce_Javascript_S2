@@ -76,21 +76,40 @@ var total = 0;
 
 // Exercise 1
 function buy(id) {
-    // 1. Loop for to the array products to get the item to add to cart
+   
 
     let articulo = [];
-
+    
+    // 1. Loop for to the array products to get the item to add to cart
     for (let i = 0; i < products.length; i++) {
 
-        articulo = products.filter(product => product.id === id);
-        console.log(articulo);
+        articulo = products.find(product => product.id === id); //trobar producto 
+        
     }
 
-    cart.push(articulo);
-    console.table(cart);
-
+    console.table(articulo);
 
     // 2. Add found product to the cart array
+
+    if (articulo) {
+        
+        const cartItem = cart.find(item => item.id === id); //si esta +1
+     
+        if (cartItem) {
+            
+            cartItem.quantity += 1;
+            console.table(cartItem)
+        
+        } else {
+            //Si no esta afegim quantitat 1
+            cart.push({ ...articulo, quantity: 1 })
+            console.table(cart);
+        }
+
+    } else {
+        console.log("Producte NO trobat")
+    }
+
 }
 
 // Exercise 2
