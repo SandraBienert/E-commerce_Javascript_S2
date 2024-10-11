@@ -93,11 +93,11 @@ function buy(id) {
 
     if (articulo) {
         
-        const cartItem = cart.find(item => item.id === id); //si esta +1
+        const cartItem = cart.find(item => item.id === id); //esta?
      
         if (cartItem) {
             
-            cartItem.quantity += 1;
+            cartItem.quantity += 1; // si +1
             console.table(cartItem)
         
         } else {
