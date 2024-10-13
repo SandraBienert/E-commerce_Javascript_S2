@@ -77,45 +77,72 @@ var total = 0;
 // Exercise 1
 function buy(id) {
    
-
-    let articulo = [];
+    let productId = id;
+    let product = null;
     
-    // 1. Loop for to the array products to get the item to add to cart
+    // 1. Funció per afeagirnproductes al carret amb LOOP
+
     for (let i = 0; i < products.length; i++) {
 
-        articulo = products.find(product => product.id === id); //trobar producto 
+        if (products[i].id === productId) {
+            product = products[i];
+            break;
+       }
         
     }
 
-    console.table(articulo);
+    console.log(product);
 
-    // 2. Add found product to the cart array
+    // 2. Comprovar si el producte ja està al carrer
 
-    if (articulo) {
+    if (product) {
         
-        const cartItem = cart.find(item => item.id === id); //esta?
+        let cartItem = null;
+
+        for (let i = 0; i < cart.length; i++){
+
+            if (cart[i].id === productId) {
+                cartItem = cart[i];
+                break;
+            }
+
+        }
      
         if (cartItem) {
+
+            //si el producte ja està al carret,afegir la quantitat 1
             
-            cartItem.quantity += 1; // si +1
+            cartItem.quantity += 1; 
             console.table(cartItem)
         
         } else {
-            //Si no esta afegim quantitat 1
-            cart.push({ ...articulo, quantity: 1 })
+            //Si no esta afegim quantitat 1 
+
+            cart.push({...product, quantity: 1});
             console.table(cart);
+
         }
 
     } else {
-        console.log("Producte NO trobat")
+        console.log("Producte No trobat")
     }
 
+    console.table (cart);
+
 }
+
 
 // Exercise 2
 function cleanCart() {
 
+
+    cart = [];
+        
+    console.log("Cart esta:", cart, typeof (cart));
+  
 }
+
+
 
 // Exercise 3
 function calculateTotal() {
