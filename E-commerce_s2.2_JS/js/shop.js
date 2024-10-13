@@ -144,28 +144,46 @@ function cleanCart() {
 
 
 // Exercise 3
+
 function calculateTotal() {
-
-    let totalImport = 0;
-
-    for (let i = 0; i < cart.length; i++){
-      
-        totalImport += cart[i].price;
-        
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].price * cart[i].quantity;
     }
-    
-    console.log("El total d'€ que hi ha al carret: ", totalImport);
-   
-    return totalImport;
+
+    console.log("El total de $ que hi ha al carret: ", total, "$");
+
+
+    return total;
 }
 
-calculateTotal(); //ENCARA NO SE a quin BUTTOM va
+
+//calculateTotal(); //ENCARA NO SE a quin BUTTOM va
 
 
 // Exercise 4
 function applyPromotionsCart() {
-    // Apply promotions to each item in the array "cart"
-}
+       
+    for (let i = 0; i < cart.length; i++) {
+           
+        const product = cart[i];
+
+            if (product.type === "grocery" && product.name === "cooking oil" && product.quantity >= 3) {
+                
+                product.subtotalWithDiscount = product.price * product.quantity * 0.8; // 20% de descompte
+            
+            } else if (product.type === "baking" && product.name === "cake mix" && product.quantity >= 10) {
+                
+                product.subtotalWithDiscount = product.price * product.quantity * 0.7; // 30% de descompte
+            
+            } else {
+               
+                product.subtotalWithDiscount = product.price * product.quantity; // sense descompte
+            }
+        }
+    }
+
+//applyPromotionsCart()
 
 // Exercise 5
 function printCart() {
