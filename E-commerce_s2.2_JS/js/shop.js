@@ -135,10 +135,9 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
 
-
     cart = [];
         
-    console.log("Cart esta:", cart, typeof (cart));
+    console.log(cart, typeof (cart));
   
 }
 
@@ -146,8 +145,22 @@ function cleanCart() {
 
 // Exercise 3
 function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+
+    let totalImport = 0;
+
+    for (let i = 0; i < cart.length; i++){
+      
+        totalImport += cart[i].price;
+        
+    }
+    
+    console.log("El total d'€ que hi ha al carret: ", totalImport);
+   
+    return totalImport;
 }
+
+calculateTotal(); //ENCARA NO SE a quin BUTTOM va
+
 
 // Exercise 4
 function applyPromotionsCart() {
