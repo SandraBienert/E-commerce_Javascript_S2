@@ -74,6 +74,7 @@ var cart = [];
 
 var total = 0;
 
+
 // Exercise 1
 function buy(id) {
    
@@ -136,8 +137,10 @@ function buy(id) {
 function cleanCart() {
 
     cart = [];
+
+    document.getElementById('total_price').innerHTML = '';
+    document.getElementById('cart_list').innerHTML = '';
         
-    console.log(cart, typeof (cart));
   
 }
 
@@ -187,9 +190,55 @@ function applyPromotionsCart() {
 
 // Exercise 5
 function printCart() {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+   
+    const cartModal = document.getElementById('cartModal');
+    const tableBody = cartModal.querySelector('tbody');
+
+    //netejar 
+
+    tableBody.innerHTML = '';
+
+    cart.forEach(product => {
+        const row = document.createElement('tr');
+
+        //Cel-les de la fila
+        const cellName = document.createElement('td');
+        cellName.textContent = product.name;
+        row.appendChild(cellName);
+
+        const cellPrice = document.createElement('td');
+        cellPrice.textContent = `$${product.price.toFixed(2)}`;
+        row.appendChild(cellPrice);
+
+        const cellQuantity = document.createElement('td');
+        cellQuantity.textContent = product.quantity;
+        row.appendChild(cellQuantity);
+
+        const cellTotal = document.createElement('td');
+        cellTotal.textContent = `$${(product.price * product.quantity).toFixed(2)}`;
+        row.appendChild(cellTotal);
+
+        //afegim la fila al cos de la taula
+        tableBody.appendChild(row);
+
+    });
+
+    //ACtualitzar el carret
+
+    const total_price = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+    const totalCell = cartModal.querySelector('#total_price');
+
+    if (totalCell) {
+        
+        totalCell.textContent = `$${total_price.toFixed(2)}`;
+    }
+
+    //mostrar modal
+    (cartModal).modal('show');
+
 }
 
+//document.getElementById('showCartButton').addEventListener('click', printCart)
 
 // ** Nivell II **
 
