@@ -28,18 +28,17 @@ function validate() {
 	var errorName = document.getElementById("errorName");
 	var errorEmail = document.getElementById("errorEmail");  
 	
-	// Validate fields entered by the user: name, phone, password, and email
-	// Clear previous error messages
+	
 	errorName.innerText = "";
 	errorEmail.innerText = "";
 
-	// Validate Name
+	
 	if (fName.value.trim() == "") {
 		error++;
 		errorName.innerText = "Name is required.";
 	}
 
-	// Validate Email
+	
 	if (fEmail.value.trim() == "") {
 		error++;
 		errorEmail.innerText = "Email is required.";
